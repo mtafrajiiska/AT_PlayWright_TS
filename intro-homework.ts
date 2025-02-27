@@ -38,7 +38,7 @@ console.log(isEmpty ? "The message is empty" : "The message is not empty");
 
 // Exercise 6: Determine if a number is within a range (10 to 100 inclusive)
 let rangeNumber: number = 78;
-let isInRange: boolean = rangeNumber >=1 && rangeNumber <= 10;
+let isInRange: boolean = rangeNumber >=1 && rangeNumber <= 100;
 console.log (isInRange ? `${rangeNumber} is between 10 and 100 (inclusive)` : `${rangeNumber} is NOT between 10 and 100 (inclusive)`);
 
 
