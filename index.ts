@@ -12,7 +12,7 @@ let ntest : string = "Ivan";
 let welcomeMessageLength: number = welcomeMessage.length;
 
 //string interpolation
-let welcomeMessageDetails: string=`My welcome message length is ${welcomeMessageLength}`;
+let welcomeMessageDetails: string='My welcome message length is ${welcomeMessageLength}';
 let userWelcomeMessage: string = 'Welcome ${test}';
 
 //Number
