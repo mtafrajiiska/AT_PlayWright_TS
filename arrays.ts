@@ -27,5 +27,5 @@ let filterNumsArray = numbersArray.filter(element => element > 2)
 
 
 //console.log ("multiplyNumbers", multiplyNumbers);
-console.log ("filterNumsArray", multiplyNumbers);
+console.log ("filterNumsArray", filterNumsArray);
 
