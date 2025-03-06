@@ -88,3 +88,22 @@ if (numm <=10){
 
 //const personNameInf: PersonInfoType = "Ivan";
 //const personNameInf: PersonInfoType = 25;
+
+// 04.03.2025
+
+//Type Alias
+type PersonInfoType = string | number;
+const personNameInf: PersonInfoType = "Ivan";
+const personNameInf1: PersonInfoType = 25;
+
+type Status = "approved" | "rejected" | "pending"| "fullfiled";
+const currentStatus: Status = "fullfiled" 
+
+type PersonData = {
+    name: string;
+    lastName: string;
+    age: number;
+    city: "Sofia" | "Plovdiv" | "Varna";
+};
+
+
