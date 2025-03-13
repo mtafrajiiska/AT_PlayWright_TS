@@ -4,15 +4,13 @@
 }
 header {
   background-color: #333;
-  
 }
 header nav {
   text-align: center;
-  
 }
 header nav ul {
   list-style-type: none;
-  height:40px;
+  height: 40px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -24,7 +22,7 @@ header nav ul li a {
   margin-right: 15px;
 }
 header nav ul li a:hover {
-    color:#c7c7c7;
+  color: #c7c7c7;
 }
 main {
   text-align: center;
@@ -52,8 +50,8 @@ main .search-bar button {
 }
 
 main .search-bar button:hover {
-    cursor: pointer;
-    background-color: #c9c9c9;
+  cursor: pointer;
+  background-color: #c9c9c9;
 }
 
 main .image-container img {
@@ -62,7 +60,7 @@ main .image-container img {
   border-radius: 10px;
 }
 main .image-container img:hover {
-scale: 1.1; 
+  scale: 1.1;
 }
 
 main .description p {
@@ -80,11 +78,10 @@ footer {
   background-color: #333;
   position: fixed;
   bottom: 0;
-  display:flex;
+  display: flex;
   align-items: center;
   justify-content: center;
-  
 }
 footer p {
-    color: #fff;
+  color: #fff;
 }
