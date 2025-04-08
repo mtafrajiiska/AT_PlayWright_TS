@@ -1,9 +1,26 @@
 import { test, expect } from "@playwright/test";
 
+interface LoginData {
+    username: string;
+    password: string;
+  }
+  
+  // Create the loginData object with the required username and password
+  const loginData: LoginData = {
+    username: "student",  // Correct username
+    password: "Password123"  // Correct password
+  };
+   
+  // Create the invalidLoginData object with the invalid username and password
+  const invalidLoginData: LoginData = {
+    username: "incorrectUser",  // Incorrect username
+    password: "incorrectPassword"  // Incorrect password
+  };
+
 test.describe("Test Practice Automation  HTML Form", () => {
   test.beforeEach('Go To HTML Home Page Test Practice', async({page}) => {
-     
-     await page.goto("https://practicetestautomation.com/practice-test-login/");
+    const practiceUrl = process.env.PRACTICE_URL as string;
+    await page.goto(practiceUrl);
   });
 
 test("Positive LogIn test", async ({ page }) => {    
@@ -11,14 +28,14 @@ test("Positive LogIn test", async ({ page }) => {
     //Type username student into Username field
     const usernameInput = page.locator("xpath=//input[@name='username']");
     await expect(usernameInput).toBeVisible();
-    await usernameInput.fill("student");
-    await expect(usernameInput).toHaveValue("student");
+    await usernameInput.fill(loginData.username);
+    await expect(usernameInput).toHaveValue(loginData.username);
 
     //Type password Password123 into Password field
     const passwordInput = page.locator("xpath=//input[@name='password']");
     await expect(passwordInput).toBeVisible();
-    await passwordInput.fill("Password123");
-    await expect(passwordInput).toHaveValue("Password123");
+    await passwordInput.fill(loginData.password);
+    await expect(passwordInput).toHaveValue(loginData.password);
     
     //Push Submit button
     const submitButton = page.locator('xpath=//button[@id="submit"]');
@@ -44,14 +61,14 @@ test("Positive LogIn test", async ({ page }) => {
     //Type incorrect username into Username field
     const usernameInput2 = page.locator("xpath=//input[@name='username']");
     await expect(usernameInput2).toBeVisible();
-    await usernameInput2.fill("incorrectUser");
-    await expect(usernameInput2).toHaveValue("incorrectUser");
+    await usernameInput2.fill(invalidLoginData.username);
+    await expect(usernameInput2).toHaveValue(invalidLoginData.username);
 
     //Type password Password123 into Password field
     const passwordInput = page.locator("xpath=//input[@name='password']");
     await expect(passwordInput).toBeVisible();
-    await passwordInput.fill("Password123");
-    await expect(passwordInput).toHaveValue("Password123");
+    await passwordInput.fill(loginData.password);
+    await expect(passwordInput).toHaveValue(loginData.password);
     
     //Push Submit button
     const submitButton = page.locator('xpath=//button[@id="submit"]');
@@ -75,14 +92,14 @@ test("Positive LogIn test", async ({ page }) => {
     //Type username student into Username field
     const usernameInput3 = page.locator("xpath=//input[@name='username']");
     await expect(usernameInput3).toBeVisible();
-    await usernameInput3.fill("student");
-    await expect(usernameInput3).toHaveValue("student");
+    await usernameInput3.fill(loginData.username);
+    await expect(usernameInput3).toHaveValue(loginData.username);
 
     //Type password incorrectPassword into Password field
     const passwordInput = page.locator("xpath=//input[@name='password']");
     await expect(passwordInput).toBeVisible();
-    await passwordInput.fill("incorrectPassword");
-    await expect(passwordInput).toHaveValue("incorrectPassword");
+    await passwordInput.fill(invalidLoginData.password);
+    await expect(passwordInput).toHaveValue(invalidLoginData.password);
     
     //Push Submit button
     const submitButton = page.locator('xpath=//button[@id="submit"]');
