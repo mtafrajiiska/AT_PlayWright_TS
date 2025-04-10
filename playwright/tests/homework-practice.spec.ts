@@ -1,4 +1,4 @@
-import { test, expect } from "@playwright/test";
+import { test, expect} from "@playwright/test";
 
 interface LoginData {
     username: string;
@@ -23,14 +23,17 @@ test.describe("Test Practice Automation  HTML Form", () => {
     await page.goto(practiceUrl);
   });
 
-test("Positive LogIn test", async ({ page }) => {    
+});
+
+test("Positive LogIn test", async ({page}) => {
+  await test.step("Fill in correct credentials and submit", async () => {    
          
     //Type username student into Username field
     const usernameInput = page.locator("xpath=//input[@name='username']");
     await expect(usernameInput).toBeVisible();
     await usernameInput.fill(loginData.username);
     await expect(usernameInput).toHaveValue(loginData.username);
-
+  
     //Type password Password123 into Password field
     const passwordInput = page.locator("xpath=//input[@name='password']");
     await expect(passwordInput).toBeVisible();
@@ -53,10 +56,11 @@ test("Positive LogIn test", async ({ page }) => {
     // Verify button Log out is displayed on the new page
     const logoutButton = page.locator('xpath=//a[text()="Log out"]');
     await expect(logoutButton).toBeVisible();
-
   });
+});
 
-  test("Negative username test", async ({ page }) => {    
+test("Negative username test", async ({page}) => {
+  await test.step("Negative username test", async () => {    
          
     //Type incorrect username into Username field
     const usernameInput2 = page.locator("xpath=//input[@name='username']");
@@ -85,9 +89,11 @@ test("Positive LogIn test", async ({ page }) => {
     // Verify that the error message text is 'Your username is invalid!'
     await expect(errorMsg).toHaveText('Your username is invalid!');
 
+   });
   });
 
-  test("Negative password test", async ({ page }) => {    
+test("Negative password test", async ({page}) => {
+  await test.step("Negative password test", async () => {    
          
     //Type username student into Username field
     const usernameInput3 = page.locator("xpath=//input[@name='username']");
@@ -117,5 +123,4 @@ test("Positive LogIn test", async ({ page }) => {
     await expect(errorMsg).toHaveText('Your password is invalid!');
 
   });
-
 });
